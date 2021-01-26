@@ -8,7 +8,15 @@ import {
   Notifications,
   SettingsPower,
 } from "@material-ui/icons";
-import { Badge, IconButton, Menu, MenuItem } from "@material-ui/core";
+import {
+  Badge,
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -59,22 +67,22 @@ function TopBarSide() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose} component={Link} to="/Profile">
-        <IconButton>
+        <ListItemIcon>
           <AccountCircle color="primary" />
-        </IconButton>
-        <p>Profile</p>
+        </ListItemIcon>
+        <ListItemText primary="Profile" />
       </MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/EditProfile">
-        <IconButton>
+        <ListItemIcon>
           <Edit color="action" />
-        </IconButton>
-        <p>Edit</p>
+        </ListItemIcon>
+        <ListItemText primary="Edit" />
       </MenuItem>
       <MenuItem component={Link} to="/Dashboard" onClick={handleMenuClose}>
-        <IconButton>
+        <ListItemIcon>
           <SettingsPower color="secondary" />
-        </IconButton>
-        <p>Logout</p>
+        </ListItemIcon>
+        <ListItemText primary="Logout" />
       </MenuItem>
     </Menu>
   );
