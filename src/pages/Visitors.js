@@ -1,9 +1,7 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
 import { Navigation } from "../components";
+import { useVisitors } from "../hooks";
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
@@ -28,31 +26,13 @@ const columns = [
 ];
 
 const Visitors = () => {
-  const [data, setData] = useState([]);
-  const [rows, setRows] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        setData(res.data);
-        setRows([
-          {
-            id: res.data[0].id,
-            lastName: res.data[0].name,
-            firstName: "Jon",
-            age: 35,
-          },
-        ]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const { visitors } = useVisitors();
+
   return (
     <Navigation>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={rows}
+          rows={visitors}
           columns={columns}
           pageSize={5}
           checkboxSelection

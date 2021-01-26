@@ -20,6 +20,7 @@ import {
   HeadsetMic,
   LibraryBooks,
   Report,
+  Settings,
   SettingsPower,
   Textsms,
   VideoCall,
@@ -175,6 +176,12 @@ function Sidebar() {
             <Report color="primary" />
           </ListItemIcon>
           <ListItemText primary="Report" />
+        </ListItem>
+        <ListItem button component={Link} to="/Setting">
+          <ListItemIcon>
+            <Settings color="primary" />
+          </ListItemIcon>
+          <ListItemText primary="Setting" />
         </ListItem>
         <Divider />
         <ListItem button component={Link} to="/Dashboard">
