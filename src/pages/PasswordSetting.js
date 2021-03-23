@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Setting = () => {
+const PasswordSetting = () => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -110,4 +110,4 @@ const Setting = () => {
   );
 };
 
-export default Setting;
+export default PasswordSetting ;

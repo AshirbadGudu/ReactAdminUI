@@ -12,7 +12,7 @@ import VideoCall from "./Videocall";
 import Appointment from "./Appointment";
 import Support from "./Support";
 import Report from "./Report";
-import Setting from "./Setting";
+import PasswordSetting from "./PasswordSetting";
 
 export {
   ForgetPassword,
@@ -29,5 +29,5 @@ export {
   Appointment,
   Support,
   Report,
-  Setting,
+  PasswordSetting,
 };

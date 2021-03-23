@@ -11,7 +11,6 @@ import {
 import {
   Badge,
   IconButton,
-  ListItem,
   ListItemIcon,
   ListItemText,
   Menu,
@@ -106,12 +105,7 @@ function TopBarSide() {
         <p>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
+        <IconButton color="inherit">
           <AccountCircle />
         </IconButton>
         <p>Profile</p>

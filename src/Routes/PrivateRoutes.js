@@ -7,10 +7,10 @@ import {
   Chat,
   Dashboard,
   NotFound,
+  PasswordSetting,
   Profile,
   ProfileEdit,
   Report,
-  Setting,
   Support,
   VideoCall,
   Visitors,
@@ -31,7 +31,7 @@ const PrivateRoutes = () => {
       <Route path="/Appointment" exact component={Appointment} />
       <Route path="/Support" exact component={Support} />
       <Route path="/Report" exact component={Report} />
-      <Route path="/Setting" exact component={Setting} />
+      <Route path="/PasswordSetting" exact component={PasswordSetting} />
 
       <Route path="/" component={NotFound} />
     </Switch>

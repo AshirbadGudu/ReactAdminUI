@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   Collapse,
@@ -9,24 +9,9 @@ import {
   ListItemText,
   makeStyles,
 } from "@material-ui/core";
-import {
-  AccountCircle,
-  Dashboard,
-  DirectionsWalkOutlined,
-  Edit,
-  EventNote,
-  ExpandLess,
-  ExpandMore,
-  HeadsetMic,
-  LibraryBooks,
-  Report,
-  Settings,
-  SettingsPower,
-  Textsms,
-  VideoCall,
-  Visibility,
-} from "@material-ui/icons";
+import { ExpandLess, ExpandMore, SettingsPower } from "@material-ui/icons";
 import Icon from "../../assets/icon.png";
+import useMenuList from "../../hooks/useMenuList";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -37,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Sidebar() {
   const classes = useStyles();
-  const [openProfile, setOpenProfile] = useState(false);
-  const [openCatalog, setOpenCatalog] = useState(false);
+  const { menu } = useMenuList();
   return (
     <div>
       <List>
@@ -53,136 +37,51 @@ function Sidebar() {
         </div>
 
         <Divider />
-        <ListItem button component={Link} to="/Dashboard">
-          <ListItemIcon>
-            <Dashboard color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem
-          button
-          onClick={() => {
-            setOpenProfile(!openProfile);
-            setOpenCatalog(false);
-          }}
-        >
-          <ListItemIcon>
-            <AccountCircle color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Profile" />
-          {openProfile ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-        <Collapse in={openProfile} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem
-              button
-              component={Link}
-              to="/Profile"
-              className={classes.nested}
-            >
-              <ListItemIcon>
-                <Visibility color="action" />
-              </ListItemIcon>
-              <ListItemText primary="View" />
-            </ListItem>
-          </List>
-          <List component="div" disablePadding>
-            <ListItem
-              button
-              component={Link}
-              to="/EditProfile"
-              className={classes.nested}
-            >
-              <ListItemIcon>
-                <Edit color="action" />
-              </ListItemIcon>
-              <ListItemText primary="Edit" />
-            </ListItem>
-          </List>
-        </Collapse>
-        <ListItem button component={Link} to="/Visitors">
-          <ListItemIcon>
-            <DirectionsWalkOutlined color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Visitors" />
-        </ListItem>
-        <ListItem button component={Link} to="/Chat">
-          <ListItemIcon>
-            <Textsms color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Chat" />
-        </ListItem>
-        <ListItem
-          button
-          onClick={() => {
-            setOpenCatalog(!openCatalog);
-            setOpenProfile(false);
-          }}
-        >
-          <ListItemIcon>
-            <LibraryBooks color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Catalog" />
-          {openCatalog ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-        <Collapse in={openCatalog} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem
-              button
-              component={Link}
-              to="/Catalog"
-              className={classes.nested}
-            >
-              <ListItemIcon>
-                <Visibility color="action" />
-              </ListItemIcon>
-              <ListItemText primary="View" />
-            </ListItem>
-          </List>
-          <List component="div" disablePadding>
-            <ListItem
-              button
-              component={Link}
-              to="/EditCatalog"
-              className={classes.nested}
-            >
-              <ListItemIcon>
-                <Edit color="action" />
-              </ListItemIcon>
-              <ListItemText primary="Edit" />
-            </ListItem>
-          </List>
-        </Collapse>
-        <ListItem button component={Link} to="/Appointment">
-          <ListItemIcon>
-            <EventNote color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Appointment" />
-        </ListItem>
-        <ListItem button component={Link} to="/Videocall">
-          <ListItemIcon>
-            <VideoCall color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="VideoCall" />
-        </ListItem>
-        <ListItem button component={Link} to="/Support">
-          <ListItemIcon>
-            <HeadsetMic color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Support" />
-        </ListItem>
-        <ListItem button component={Link} to="/Report">
-          <ListItemIcon>
-            <Report color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Report" />
-        </ListItem>
-        <ListItem button component={Link} to="/Setting">
-          <ListItemIcon>
-            <Settings color="primary" />
-          </ListItemIcon>
-          <ListItemText primary="Setting" />
-        </ListItem>
+        {menu &&
+          menu.map(
+            (item, i) =>
+              true && (
+                <div key={i}>
+                  {item.hasOwnProperty("collapsedItems") ? (
+                    <>
+                      <ListItem button onClick={item.onClick}>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.name} />
+                        {item.collapsed ? <ExpandLess /> : <ExpandMore />}
+                      </ListItem>
+                      <Collapse
+                        in={item.collapsed}
+                        timeout="auto"
+                        unmountOnExit
+                      >
+                        {item.collapsedItems.map((item, i) => {
+                          return (
+                            <div key={i}>
+                              <List component="div" disablePadding>
+                                <ListItem
+                                  button
+                                  component={Link}
+                                  to={`/${item.route}`}
+                                  className={classes.nested}
+                                >
+                                  <ListItemIcon>{item.icon}</ListItemIcon>
+                                  <ListItemText primary={item.name} />
+                                </ListItem>
+                              </List>
+                            </div>
+                          );
+                        })}
+                      </Collapse>
+                    </>
+                  ) : (
+                    <ListItem button component={Link} to={`/${item.route}`}>
+                      <ListItemIcon>{item.icon}</ListItemIcon>
+                      <ListItemText primary={item.name} />
+                    </ListItem>
+                  )}
+                </div>
+              )
+          )}
         <Divider />
         <ListItem button component={Link} to="/Dashboard">
           <ListItemIcon>
