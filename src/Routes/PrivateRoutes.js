@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import { PrivateRouter } from ".";
 import {
   Chat,
   Dashboard,
@@ -13,14 +14,18 @@ import {
 const PrivateRoutes = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Dashboard} />
-      <Route path="/Dashboard" exact component={Dashboard} />
-      <Route path="/Profile" exact component={Profile} />
-      <Route path="/EditProfile" exact component={ProfileEdit} />
-      <Route path="/Chat" exact component={Chat} />
-      <Route path="/Support" exact component={Support} />
-      <Route path="/PasswordSetting" exact component={PasswordSetting} />
-      <Route path="*" component={NotFound} />
+      <PrivateRouter path="/" exact component={Dashboard} />
+      <PrivateRouter path="/Dashboard" exact component={Dashboard} />
+      <PrivateRouter path="/Profile" exact component={Profile} />
+      <PrivateRouter path="/EditProfile" exact component={ProfileEdit} />
+      <PrivateRouter path="/Chat" exact component={Chat} />
+      <PrivateRouter path="/Support" exact component={Support} />
+      <PrivateRouter
+        path="/PasswordSetting"
+        exact
+        component={PasswordSetting}
+      />
+      <PrivateRouter path="*" component={NotFound} />
     </Switch>
   );
 };
