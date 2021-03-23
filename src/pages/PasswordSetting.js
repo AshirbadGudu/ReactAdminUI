@@ -69,7 +69,6 @@ const PasswordSetting = () => {
                   name="password"
                   label="Password"
                   type="password"
-                  id="password"
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => {
@@ -84,7 +83,6 @@ const PasswordSetting = () => {
                   name="Newpassword"
                   label="New Password"
                   type="password"
-                  id="password"
                   autoComplete="current-password"
                   value={newPassword}
                   onChange={(e) => {
@@ -110,4 +108,4 @@ const PasswordSetting = () => {
   );
 };
 
-export default PasswordSetting ;
+export default PasswordSetting;
