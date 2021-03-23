@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   Typography,
-  Grid,
   TextField,
   CssBaseline,
   Button,
@@ -83,9 +82,9 @@ const ForgetPassword = () => {
               Get Verification Link
             </Button>
 
-            <Grid container item xs>
-              <Link to="/Login">Go Back</Link>
-            </Grid>
+            <Button component={Link} to="/Login">
+              Go Back
+            </Button>
           </form>
         </div>
       </Container>

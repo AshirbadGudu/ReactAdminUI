@@ -6,7 +6,6 @@ import {
   Button,
   Container,
   CssBaseline,
-  Grid,
   makeStyles,
   TextField,
   Typography,
@@ -100,9 +99,9 @@ const Login = () => {
               Sign In
             </Button>
 
-            <Grid container item xs>
-              <Link to="/ForgetPassword">Forgot password?</Link>
-            </Grid>
+            <Button component={Link} to="/ForgetPassword">
+              Forgot password?
+            </Button>
           </form>
         </div>
       </Container>
