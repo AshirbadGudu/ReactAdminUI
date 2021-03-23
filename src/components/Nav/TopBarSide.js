@@ -16,7 +16,6 @@ import {
   Menu,
   MenuItem,
 } from "@material-ui/core";
-import { useAuth } from "../../Config";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function TopBarSide() {
   const classes = useStyles();
   const history = useHistory();
-  const { logout } = useAuth();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -86,7 +85,7 @@ function TopBarSide() {
       <MenuItem
         onClick={async () => {
           handleMenuClose();
-          await logout();
+          // await logout();
           history.push("/");
         }}
       >
