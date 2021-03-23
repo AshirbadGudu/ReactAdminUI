@@ -8,8 +8,11 @@ import {
   CssBaseline,
   Button,
   Avatar,
+  Snackbar,
 } from "@material-ui/core";
 import { LockOutlined } from "@material-ui/icons";
+import Alert from "@material-ui/lab/Alert";
+import { useAuth } from "../Config";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,13 +36,25 @@ const useStyles = makeStyles((theme) => ({
 
 const ForgetPassword = () => {
   const classes = useStyles();
+
+  const { resetPassword } = useAuth();
   const [newEmail, setNewEmail] = useState("");
-  const handelSubmit = (e) => {
+  const [showAlert, setShowAlert] = useState({
+    msg: "",
+    isOpen: false,
+    color: "",
+  });
+  const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(newEmail);
+      await resetPassword(newEmail);
+      setShowAlert({
+        msg: "Success, Verification Link Sent To The Email",
+        isOpen: true,
+        color: "success",
+      });
     } catch (error) {
-      alert(error.message);
+      setShowAlert({ msg: error.message, isOpen: true, color: "error" });
     } finally {
       setNewEmail("");
     }
@@ -47,6 +62,18 @@ const ForgetPassword = () => {
   return (
     <div>
       <Container component="main" maxWidth="xs">
+        <Snackbar
+          open={showAlert.isOpen}
+          autoHideDuration={6000}
+          onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+        >
+          <Alert
+            onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+            severity={showAlert.color}
+          >
+            {showAlert.msg}
+          </Alert>
+        </Snackbar>
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

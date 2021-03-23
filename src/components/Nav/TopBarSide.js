@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AccountCircle,
-  Edit,
+  Mail,
   MoreVert,
   Notifications,
   SettingsPower,
@@ -16,6 +16,7 @@ import {
   Menu,
   MenuItem,
 } from "@material-ui/core";
+import { useAuth } from "../../Config";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -37,8 +38,10 @@ const useStyles = makeStyles((theme) => ({
 
 function TopBarSide() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const history = useHistory();
+  const { logout } = useAuth();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const handleProfileMenuOpen = (event) => {
@@ -65,19 +68,28 @@ function TopBarSide() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} component={Link} to="/Profile">
+      <MenuItem onClick={handleMenuClose}>
         <ListItemIcon>
-          <AccountCircle color="primary" />
+          <Mail color="primary" />
         </ListItemIcon>
-        <ListItemText primary="Profile" />
+        <ListItemText
+          primary={"Patisubhakantaniku@gmail.com" || " Loading..."}
+        />
       </MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/EditProfile">
+      <MenuItem onClick={handleMenuClose}>
         <ListItemIcon>
-          <Edit color="action" />
+          <AccountCircle color="action" />
         </ListItemIcon>
-        <ListItemText primary="Edit" />
+        <ListItemText primary={"Niku"} />
       </MenuItem>
-      <MenuItem component={Link} to="/Dashboard" onClick={handleMenuClose}>
+
+      <MenuItem
+        onClick={async () => {
+          handleMenuClose();
+          await logout();
+          history.push("/");
+        }}
+      >
         <ListItemIcon>
           <SettingsPower color="secondary" />
         </ListItemIcon>
@@ -105,7 +117,12 @@ function TopBarSide() {
         <p>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton color="inherit">
+        <IconButton
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
           <AccountCircle />
         </IconButton>
         <p>Profile</p>

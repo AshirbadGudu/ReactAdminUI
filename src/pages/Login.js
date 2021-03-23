@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {
   Avatar,
@@ -7,9 +7,12 @@ import {
   Container,
   CssBaseline,
   makeStyles,
+  Snackbar,
   TextField,
   Typography,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
+import { useAuth } from "../Config";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,14 +36,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handelSubmit = (e) => {
+  const [showAlert, setShowAlert] = useState({
+    msg: "",
+    isOpen: false,
+    color: "",
+  });
+  const history = useHistory();
+  const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(email, password);
+      await login(email, password);
+      history.push("/");
     } catch (error) {
-      alert(error.message);
+      setShowAlert({ msg: error.message, isOpen: true, color: "error" });
     } finally {
       setEmail("");
       setPassword("");
@@ -49,6 +60,18 @@ const Login = () => {
   return (
     <div>
       <Container component="main" maxWidth="xs">
+        <Snackbar
+          open={showAlert.isOpen}
+          autoHideDuration={6000}
+          onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+        >
+          <Alert
+            onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+            severity={showAlert.color}
+          >
+            {showAlert.msg}
+          </Alert>
+        </Snackbar>
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

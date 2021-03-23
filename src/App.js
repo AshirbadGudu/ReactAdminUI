@@ -5,9 +5,7 @@ import { PrivateRoutes, PublicRoutes } from "./Routes";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      {false ? <PrivateRoutes /> : <PublicRoutes />}
-    </BrowserRouter>
+    <BrowserRouter>{true ? <PrivateRoutes /> : <PublicRoutes />}</BrowserRouter>
   );
 };
 

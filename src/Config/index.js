@@ -1,12 +1,4 @@
-import { auth, app, database, storage } from "./firebaseConfig";
 import { useAuth, AuthProvider } from "./AuthContext";
-import { containerVariant } from "./Variants";
-export {
-  app,
-  auth,
-  database,
-  storage,
-  containerVariant,
-  useAuth,
-  AuthProvider,
-};
+import { auth, database, storage, messaging, getToken } from "./firebase";
+
+export { useAuth, AuthProvider, auth, database, storage, messaging, getToken };
