@@ -8,12 +8,11 @@ import {
 import React from "react";
 import { Navigation } from "../components";
 import DashboardCard from "../components/DashboardCard";
-import { useAppointment, useCatalog, useVisitors } from "../hooks";
+import { useVisitors } from "../hooks";
 
 function Dashboard() {
   const { visitors } = useVisitors();
-  const { appointments } = useAppointment();
-  const { catalogs } = useCatalog();
+
   return (
     <Navigation>
       <Grid container spacing={3}>
@@ -27,14 +26,14 @@ function Dashboard() {
         <Grid item lg={3} xs={12}>
           <DashboardCard
             title={"Appointment"}
-            data={appointments.length}
+            data={10}
             icon={<EventNote color="primary" />}
           />
         </Grid>
         <Grid item lg={3} xs={12}>
           <DashboardCard
             title={"Catalog"}
-            data={catalogs.length}
+            data={10}
             icon={<Visibility color="action" />}
           />
         </Grid>

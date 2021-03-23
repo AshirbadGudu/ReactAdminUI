@@ -1,7 +1,7 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { Navigation } from "../components";
-import { useVisitors } from "../hooks";
+
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
@@ -26,7 +26,7 @@ const columns = [
 ];
 
 const Visitors = () => {
-  const { visitors } = useVisitors();
+  const visitors = [];
 
   return (
     <Navigation>

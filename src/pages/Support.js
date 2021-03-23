@@ -7,7 +7,6 @@ import {
   TextField,
   CssBaseline,
   Button,
-  Avatar,
   Card,
   CardContent,
 } from "@material-ui/core";
