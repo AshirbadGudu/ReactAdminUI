@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const useCurrentUser = () => {
   const [currentUserData] = useState({
-    role: "stall",
+    role: "st",
     id: "1234567890",
   });
 

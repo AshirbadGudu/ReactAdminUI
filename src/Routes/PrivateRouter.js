@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { useCurrentUser } from "../hooks";
+import Swal from "sweetalert2";
 
 const PrivateRouter = ({ component: Component, ...rest }) => {
   const { currentUserData } = useCurrentUser();
@@ -15,8 +16,11 @@ const PrivateRouter = ({ component: Component, ...rest }) => {
       role !== "EventManager" &&
       role !== "AuditoriumSpeaker"
     ) {
-      alert("You don't have access to this panel");
-      // logout();
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You do not have access to this panel ",
+      });
     }
   }, [role]);
 
