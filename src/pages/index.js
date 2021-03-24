@@ -16,6 +16,8 @@ import AddVideo from "./AddVideo";
 import ViewVideo from "./ViewVideo";
 import AddLink from "./AddLink";
 import ViewLinks from "./ViewLinks";
+import AddDocument from "./AddDocument";
+import ViewDocuments from "./ViewDocuments";
 
 export {
   ForgetPassword,
@@ -36,4 +38,6 @@ export {
   ViewVideo,
   AddLink,
   ViewLinks,
+  AddDocument,
+  ViewDocuments,
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import { PrivateRouter } from ".";
 import {
+  AddDocument,
   AddLink,
   AddMember,
   AddVideo,
@@ -15,6 +16,7 @@ import {
   StallDetails,
   Support,
   UpdateStall,
+  ViewDocuments,
   ViewLinks,
   ViewMember,
   ViewVideo,
@@ -38,8 +40,8 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/ViewVideo" exact component={ViewVideo} />
       <PrivateRouter path="/AddLink" exact component={AddLink} />
       <PrivateRouter path="/ViewLinks" exact component={ViewLinks} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/AddDocument" exact component={AddDocument} />
+      <PrivateRouter path="/ViewDocuments" exact component={ViewDocuments} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}

@@ -3,10 +3,13 @@ import {
   Add,
   Chat,
   Dashboard,
+  Description,
   Edit,
   EventNote,
   GroupAdd,
   Link,
+  NoteAdd,
+  Pageview,
   Settings,
   Storefront,
   Update,
@@ -23,6 +26,7 @@ const useMenuList = () => {
   const [openStore, setOpenStore] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
   const [openLinks, setOpenLinks] = useState(false);
+  const [openDocuments, setOpenDocuments] = useState(false);
   useEffect(() => {
     setMenu([
       {
@@ -127,9 +131,10 @@ const useMenuList = () => {
           },
         ],
       },
+
       {
         icon: <Link color="primary" />,
-        name: "Add Link",
+        name: "Link",
         collapsed: openLinks,
         // stall: true,
         // StallMember: true,
@@ -144,6 +149,26 @@ const useMenuList = () => {
             name: "View Links",
             route: "ViewLinks",
             icon: <Visibility color="action" />,
+          },
+        ],
+      },
+      {
+        icon: <Description color="primary" />,
+        name: "Documents",
+        collapsed: openDocuments,
+        // stall: true,
+        // StallMember: true,
+        onClick: () => setOpenDocuments(!openDocuments),
+        collapsedItems: [
+          {
+            name: "Add Document",
+            route: "AddDocument",
+            icon: <NoteAdd color="action" />,
+          },
+          {
+            name: "View Documents",
+            route: "ViewDocuments",
+            icon: <Pageview color="action" />,
           },
         ],
       },
@@ -168,7 +193,15 @@ const useMenuList = () => {
         ],
       },
     ]);
-  }, [openLinks, openMember, openProfile, openStore, openVideo, setting]);
+  }, [
+    openDocuments,
+    openLinks,
+    openMember,
+    openProfile,
+    openStore,
+    openVideo,
+    setting,
+  ]);
   return { menu };
 };
 
