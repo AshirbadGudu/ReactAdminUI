@@ -1,8 +1,11 @@
 import {
   AccountCircle,
+  Add,
   Chat,
   Dashboard,
   Edit,
+  EventNote,
+  GroupAdd,
   Settings,
   Visibility,
 } from "@material-ui/icons";
@@ -12,12 +15,27 @@ const useMenuList = () => {
   const [menu, setMenu] = useState([]);
   const [openProfile, setOpenProfile] = useState(false);
   const [setting, setSetting] = useState(false);
+  const [openMember, setOpenMember] = useState(false);
   useEffect(() => {
     setMenu([
       {
         name: "Dashboard",
         route: "Dashboard",
         icon: <Dashboard color="primary" />,
+        // stall: true,
+        // StallMember: true,
+      },
+      {
+        name: "Chat",
+        route: "Chat",
+        icon: <Chat color="primary" />,
+        // stall: true,
+        // StallMember: true,
+      },
+      {
+        name: "Appointment",
+        route: "Appointment",
+        icon: <EventNote color="primary" />,
         // stall: true,
         // StallMember: true,
       },
@@ -41,12 +59,26 @@ const useMenuList = () => {
           },
         ],
       },
+
       {
-        name: "Chat",
-        route: "Chat",
-        icon: <Chat color="primary" />,
+        icon: <GroupAdd color="primary" />,
+        name: "Member Manage",
+        collapsed: openMember,
         // stall: true,
         // StallMember: true,
+        onClick: () => setOpenMember(!openMember),
+        collapsedItems: [
+          {
+            name: "View Member",
+            route: "ViewMember",
+            icon: <Visibility color="action" />,
+          },
+          {
+            name: "Add Member",
+            route: "AddMember",
+            icon: <Add color="action" />,
+          },
+        ],
       },
       {
         icon: <Settings color="primary" />,
@@ -69,7 +101,7 @@ const useMenuList = () => {
         ],
       },
     ]);
-  }, [openProfile, setting]);
+  }, [openMember, openProfile, setting]);
   return { menu };
 };
 

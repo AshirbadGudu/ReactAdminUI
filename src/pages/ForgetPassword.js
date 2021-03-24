@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import { LockOutlined } from "@material-ui/icons";
 import Alert from "@material-ui/lab/Alert";
-import { useAuth } from "../Config";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -37,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 const ForgetPassword = () => {
   const classes = useStyles();
 
-  const { resetPassword } = useAuth();
   const [newEmail, setNewEmail] = useState("");
   const [showAlert, setShowAlert] = useState({
     msg: "",
@@ -47,7 +45,7 @@ const ForgetPassword = () => {
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      await resetPassword(newEmail);
+      // await resetPassword(newEmail);
       setShowAlert({
         msg: "Success, Verification Link Sent To The Email",
         isOpen: true,

@@ -2,6 +2,8 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import { PrivateRouter } from ".";
 import {
+  AddMember,
+  Appointment,
   Chat,
   Dashboard,
   NotFound,
@@ -9,6 +11,7 @@ import {
   Profile,
   ProfileEdit,
   Support,
+  ViewMember,
 } from "../pages";
 
 const PrivateRoutes = () => {
@@ -20,6 +23,25 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/EditProfile" exact component={ProfileEdit} />
       <PrivateRouter path="/Chat" exact component={Chat} />
       <PrivateRouter path="/Support" exact component={Support} />
+      <PrivateRouter path="/Appointment" exact component={Appointment} />
+      <PrivateRouter path="/ViewMember" exact component={ViewMember} />
+      <PrivateRouter path="/AddMember" exact component={AddMember} />
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+
       <PrivateRouter
         path="/PasswordSetting"
         exact
