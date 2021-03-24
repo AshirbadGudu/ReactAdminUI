@@ -11,7 +11,9 @@ import {
   EventNote,
   Group,
   GroupAdd,
+  HeadsetMic,
   Link,
+  LocalActivity,
   NoteAdd,
   Pageview,
   Photo,
@@ -38,6 +40,7 @@ const useMenuList = () => {
   const [openAgenda, setOpenAgenda] = useState(false);
   const [openLogo, setOpenLogo] = useState(false);
   const [openLeadpage, setOpenLeadpage] = useState(false);
+  const [openEvent, setOpenEvent] = useState(false);
   useEffect(() => {
     setMenu([
       //For All Dashboard
@@ -266,7 +269,7 @@ const useMenuList = () => {
       },
       {
         icon: <EventNote color="primary" />,
-        name: "LeadPage Data",
+        name: "Lead Page Data",
         collapsed: openLeadpage,
         helpdesk: true,
 
@@ -284,8 +287,36 @@ const useMenuList = () => {
           },
         ],
       },
+      {
+        icon: <LocalActivity color="primary" />,
+        name: "Manage Event",
+        collapsed: openEvent,
+        helpdesk: true,
+
+        onClick: () => setOpenEvent(!openEvent),
+        collapsedItems: [
+          {
+            name: "Add Event",
+            route: "AddEvent",
+            icon: <Add color="action" />,
+          },
+          {
+            name: "View Events",
+            route: "ViewEvents",
+            icon: <RateReview color="action" />,
+          },
+        ],
+      },
 
       //For All
+      {
+        name: "Support",
+        route: "Support",
+        icon: <HeadsetMic color="primary" />,
+        stall: true,
+        StallMember: true,
+        helpdesk: true,
+      },
 
       {
         icon: <Settings color="primary" />,
@@ -313,6 +344,7 @@ const useMenuList = () => {
   }, [
     openAgenda,
     openDocuments,
+    openEvent,
     openLeadpage,
     openLinks,
     openLogo,

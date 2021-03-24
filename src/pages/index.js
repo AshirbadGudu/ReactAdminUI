@@ -27,6 +27,8 @@ import AddLogo from "./AddLogo";
 import ViewLogo from "./ViewLogo";
 import AddLeadPageData from "./AddLeadPageData";
 import ViewLeadPageData from "./ViewLeadPageData";
+import AddEvent from "./AddEvent";
+import ViewEvents from "./ViewEvents";
 
 export {
   ForgetPassword,
@@ -58,4 +60,6 @@ export {
   ViewLogo,
   AddLeadPageData,
   ViewLeadPageData,
+  AddEvent,
+  ViewEvents,
 };
