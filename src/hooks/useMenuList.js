@@ -49,7 +49,7 @@ const useMenuList = () => {
       //For All Dashboard
       {
         name: "Dashboard",
-        route: "StallDashboard",
+        route: "Dashboard",
         icon: <Dashboard color="primary" />,
         stall: true,
         StallMember: true,

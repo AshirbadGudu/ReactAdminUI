@@ -31,6 +31,7 @@ import AddEvent from "./AddEvent";
 import ViewEvents from "./ViewEvents";
 import AddSpeaker from "./AddSpeaker";
 import ViewSpeaker from "./ViewSpeaker";
+import Dashboard from "./DashBoard";
 export {
   ForgetPassword,
   Login,
@@ -65,4 +66,5 @@ export {
   ViewEvents,
   AddSpeaker,
   ViewSpeaker,
+  Dashboard,
 };

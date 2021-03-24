@@ -12,6 +12,7 @@ import {
   AddVideo,
   Appointment,
   Chat,
+  Dashboard,
   Exhibitors,
   LiveChat,
   ManageRole,
@@ -39,7 +40,7 @@ const PrivateRoutes = () => {
   return (
     <Switch>
       <PrivateRouter path="/" exact component={StallDashboard} />
-      <PrivateRouter path="/StallDashboard" exact component={StallDashboard} />
+      <PrivateRouter path="/Dashboard" exact component={Dashboard} />
       <PrivateRouter path="/Profile" exact component={Profile} />
       <PrivateRouter path="/EditProfile" exact component={ProfileEdit} />
       <PrivateRouter path="/Chat" exact component={Chat} />
