@@ -109,7 +109,7 @@ const useMenuList = () => {
           {
             name: "Add Member",
             route: "AddMember",
-            icon: <Add color="action" />,
+            icon: <PersonAdd color="action" />,
           },
         ],
       },
@@ -128,7 +128,7 @@ const useMenuList = () => {
             icon: <Update color="action" />,
           },
           {
-            name: "StallDetails",
+            name: "Stall Details",
             route: "StallDetails",
             icon: <Add color="action" />,
           },
