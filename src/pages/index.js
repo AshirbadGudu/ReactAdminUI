@@ -18,6 +18,7 @@ import AddLink from "./AddLink";
 import ViewLinks from "./ViewLinks";
 import AddDocument from "./AddDocument";
 import ViewDocuments from "./ViewDocuments";
+import Exhibitors from "./Exhibitors";
 
 export {
   ForgetPassword,
@@ -40,4 +41,5 @@ export {
   ViewLinks,
   AddDocument,
   ViewDocuments,
+  Exhibitors,
 };

@@ -8,6 +8,7 @@ import {
   AddVideo,
   Appointment,
   Chat,
+  Exhibitors,
   NotFound,
   PasswordSetting,
   Profile,
@@ -42,7 +43,7 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/ViewLinks" exact component={ViewLinks} />
       <PrivateRouter path="/AddDocument" exact component={AddDocument} />
       <PrivateRouter path="/ViewDocuments" exact component={ViewDocuments} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/Exhibitors" exact component={Exhibitors} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}

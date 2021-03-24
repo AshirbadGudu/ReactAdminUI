@@ -1,4 +1,5 @@
 import {
+  AccountBox,
   AccountCircle,
   Add,
   Chat,
@@ -35,6 +36,14 @@ const useMenuList = () => {
         icon: <Dashboard color="primary" />,
         stall: true,
         StallMember: true,
+        superadmin: true,
+      },
+      {
+        name: "Exhibitors",
+        route: "Exhibitors",
+        icon: <AccountBox color="primary" />,
+        stall: false,
+        StallMember: false,
         superadmin: true,
       },
       {
