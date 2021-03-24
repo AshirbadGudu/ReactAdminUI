@@ -31,31 +31,35 @@ const useMenuList = () => {
     setMenu([
       {
         name: "Dashboard",
-        route: "Dashboard",
+        route: "StallDashboard",
         icon: <Dashboard color="primary" />,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: true,
       },
       {
         name: "Chat",
         route: "Chat",
         icon: <Chat color="primary" />,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
       },
       {
         name: "Appointment",
         route: "Appointment",
         icon: <EventNote color="primary" />,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
       },
       {
         icon: <AccountCircle color="primary" />,
         name: "Profile",
         collapsed: openProfile,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
         onClick: () => setOpenProfile(!openProfile),
         collapsedItems: [
           {
@@ -75,8 +79,9 @@ const useMenuList = () => {
         icon: <GroupAdd color="primary" />,
         name: "Member Manage",
         collapsed: openMember,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: false,
+        superadmin: false,
         onClick: () => setOpenMember(!openMember),
         collapsedItems: [
           {
@@ -95,8 +100,9 @@ const useMenuList = () => {
         icon: <Storefront color="primary" />,
         name: "Stall Info",
         collapsed: openStore,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: false,
+        superadmin: false,
         onClick: () => setOpenStore(!openStore),
         collapsedItems: [
           {
@@ -115,8 +121,9 @@ const useMenuList = () => {
         icon: <YouTube color="primary" />,
         name: "Promotion Video",
         collapsed: openVideo,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
         onClick: () => setOpenVideo(!openVideo),
         collapsedItems: [
           {
@@ -136,8 +143,9 @@ const useMenuList = () => {
         icon: <Link color="primary" />,
         name: "Link",
         collapsed: openLinks,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
         onClick: () => setOpenLinks(!openLinks),
         collapsedItems: [
           {
@@ -156,8 +164,9 @@ const useMenuList = () => {
         icon: <Description color="primary" />,
         name: "Documents",
         collapsed: openDocuments,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: false,
         onClick: () => setOpenDocuments(!openDocuments),
         collapsedItems: [
           {
@@ -176,8 +185,9 @@ const useMenuList = () => {
         icon: <Settings color="primary" />,
         name: "Settings",
         collapsed: setting,
-        // stall: true,
-        // StallMember: true,
+        stall: true,
+        StallMember: true,
+        superadmin: true,
         onClick: () => setSetting(!setting),
         collapsedItems: [
           {

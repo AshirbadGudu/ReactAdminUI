@@ -12,6 +12,7 @@ import {
 import { ExpandLess, ExpandMore, SettingsPower } from "@material-ui/icons";
 import Icon from "../../assets/icon.png";
 import useMenuList from "../../hooks/useMenuList";
+import useCurrentUser from "../../hooks/useCurrentUser";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function Sidebar() {
   const classes = useStyles();
   const { menu } = useMenuList();
+  const { currentUserData } = useCurrentUser();
   return (
     <div>
       <List>
@@ -40,7 +42,7 @@ function Sidebar() {
         {menu &&
           menu.map(
             (item, i) =>
-              true && (
+              item[currentUserData?.role] && (
                 <div key={i}>
                   {item.hasOwnProperty("collapsedItems") ? (
                     <>

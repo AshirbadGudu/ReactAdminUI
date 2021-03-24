@@ -10,7 +10,7 @@ import { Navigation } from "../components";
 import DashboardCard from "../components/DashboardCard";
 import { useVisitors } from "../hooks";
 
-function Dashboard() {
+function StallDashboard() {
   const { visitors } = useVisitors();
 
   return (
@@ -49,4 +49,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default StallDashboard;

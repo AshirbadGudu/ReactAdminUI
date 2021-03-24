@@ -1,7 +1,7 @@
 import Login from "./Login";
 import ForgetPassword from "./ForgetPassword";
 import NotFound from "./NotFound";
-import Dashboard from "./Dashboard";
+import StallDashboard from "./StallDashboard";
 import Profile from "./Profile";
 import ProfileEdit from "./ProfileEdit";
 import Chat from "./Chat";
@@ -23,7 +23,7 @@ export {
   ForgetPassword,
   Login,
   NotFound,
-  Dashboard,
+  StallDashboard,
   Profile,
   ProfileEdit,
   Chat,
