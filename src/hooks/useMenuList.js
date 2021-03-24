@@ -6,10 +6,12 @@ import {
   Edit,
   EventNote,
   GroupAdd,
+  Link,
   Settings,
   Storefront,
   Update,
   Visibility,
+  YouTube,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 
@@ -19,6 +21,8 @@ const useMenuList = () => {
   const [setting, setSetting] = useState(false);
   const [openMember, setOpenMember] = useState(false);
   const [openStore, setOpenStore] = useState(false);
+  const [openVideo, setOpenVideo] = useState(false);
+  const [openLinks, setOpenLinks] = useState(false);
   useEffect(() => {
     setMenu([
       {
@@ -104,6 +108,46 @@ const useMenuList = () => {
         ],
       },
       {
+        icon: <YouTube color="primary" />,
+        name: "Promotion Video",
+        collapsed: openVideo,
+        // stall: true,
+        // StallMember: true,
+        onClick: () => setOpenVideo(!openVideo),
+        collapsedItems: [
+          {
+            name: "Add Video",
+            route: "AddVideo",
+            icon: <Add color="action" />,
+          },
+          {
+            name: "View Video",
+            route: "ViewVideo",
+            icon: <Visibility color="action" />,
+          },
+        ],
+      },
+      {
+        icon: <Link color="primary" />,
+        name: "Add Link",
+        collapsed: openLinks,
+        // stall: true,
+        // StallMember: true,
+        onClick: () => setOpenLinks(!openLinks),
+        collapsedItems: [
+          {
+            name: "Add Link",
+            route: "AddLink",
+            icon: <Add color="action" />,
+          },
+          {
+            name: "View Links",
+            route: "ViewLinks",
+            icon: <Visibility color="action" />,
+          },
+        ],
+      },
+      {
         icon: <Settings color="primary" />,
         name: "Settings",
         collapsed: setting,
@@ -124,7 +168,7 @@ const useMenuList = () => {
         ],
       },
     ]);
-  }, [openMember, openProfile, openStore, setting]);
+  }, [openLinks, openMember, openProfile, openStore, openVideo, setting]);
   return { menu };
 };
 

@@ -2,7 +2,9 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import { PrivateRouter } from ".";
 import {
+  AddLink,
   AddMember,
+  AddVideo,
   Appointment,
   Chat,
   Dashboard,
@@ -13,7 +15,9 @@ import {
   StallDetails,
   Support,
   UpdateStall,
+  ViewLinks,
   ViewMember,
+  ViewVideo,
 } from "../pages";
 
 const PrivateRoutes = () => {
@@ -30,10 +34,10 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/AddMember" exact component={AddMember} />
       <PrivateRouter path="/UpdateStall" exact component={UpdateStall} />
       <PrivateRouter path="/StallDetails" exact component={StallDetails} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/AddVideo" exact component={AddVideo} />
+      <PrivateRouter path="/ViewVideo" exact component={ViewVideo} />
+      <PrivateRouter path="/AddLink" exact component={AddLink} />
+      <PrivateRouter path="/ViewLinks" exact component={ViewLinks} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}

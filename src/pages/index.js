@@ -12,6 +12,10 @@ import ViewMember from "./ViewMember";
 import AddMember from "./AddMember";
 import UpdateStall from "./UpdateStall";
 import StallDetails from "./StallDetails";
+import AddVideo from "./AddVideo";
+import ViewVideo from "./ViewVideo";
+import AddLink from "./AddLink";
+import ViewLinks from "./ViewLinks";
 
 export {
   ForgetPassword,
@@ -28,4 +32,8 @@ export {
   AddMember,
   UpdateStall,
   StallDetails,
+  AddVideo,
+  ViewVideo,
+  AddLink,
+  ViewLinks,
 };
