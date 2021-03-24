@@ -29,7 +29,8 @@ import AddLeadPageData from "./AddLeadPageData";
 import ViewLeadPageData from "./ViewLeadPageData";
 import AddEvent from "./AddEvent";
 import ViewEvents from "./ViewEvents";
-
+import AddSpeaker from "./AddSpeaker";
+import ViewSpeaker from "./ViewSpeaker";
 export {
   ForgetPassword,
   Login,
@@ -62,4 +63,6 @@ export {
   ViewLeadPageData,
   AddEvent,
   ViewEvents,
+  AddSpeaker,
+  ViewSpeaker,
 };

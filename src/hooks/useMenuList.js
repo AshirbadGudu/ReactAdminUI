@@ -16,8 +16,10 @@ import {
   LocalActivity,
   NoteAdd,
   Pageview,
+  PersonAdd,
   Photo,
   RateReview,
+  RecordVoiceOver,
   Settings,
   Storefront,
   SupervisedUserCircle,
@@ -41,6 +43,7 @@ const useMenuList = () => {
   const [openLogo, setOpenLogo] = useState(false);
   const [openLeadpage, setOpenLeadpage] = useState(false);
   const [openEvent, setOpenEvent] = useState(false);
+  const [openSpeaker, setOpenSpeaker] = useState(false);
   useEffect(() => {
     setMenu([
       //For All Dashboard
@@ -307,6 +310,26 @@ const useMenuList = () => {
           },
         ],
       },
+      {
+        icon: <RecordVoiceOver color="primary" />,
+        name: "Speaker",
+        collapsed: openSpeaker,
+        helpdesk: true,
+
+        onClick: () => setOpenSpeaker(!openSpeaker),
+        collapsedItems: [
+          {
+            name: "Add Speaker",
+            route: "AddSpeaker",
+            icon: <PersonAdd color="action" />,
+          },
+          {
+            name: "View Speaker",
+            route: "ViewSpeaker",
+            icon: <Visibility color="action" />,
+          },
+        ],
+      },
 
       //For All
       {
@@ -350,6 +373,7 @@ const useMenuList = () => {
     openLogo,
     openMember,
     openProfile,
+    openSpeaker,
     openStore,
     openVideo,
     setting,

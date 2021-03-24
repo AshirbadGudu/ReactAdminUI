@@ -8,6 +8,7 @@ import {
   AddLink,
   AddLogo,
   AddMember,
+  AddSpeaker,
   AddVideo,
   Appointment,
   Chat,
@@ -30,6 +31,7 @@ import {
   ViewLinks,
   ViewLogo,
   ViewMember,
+  ViewSpeaker,
   ViewVideo,
 } from "../pages";
 
@@ -76,8 +78,8 @@ const PrivateRoutes = () => {
       />
       <PrivateRouter path="/AddEvent" exact component={AddEvent} />
       <PrivateRouter path="/ViewEvents" exact component={ViewEvents} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/AddSpeaker" exact component={AddSpeaker} />
+      <PrivateRouter path="/ViewSpeaker" exact component={ViewSpeaker} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
 
       <PrivateRouter
