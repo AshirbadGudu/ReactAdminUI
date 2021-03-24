@@ -9,7 +9,9 @@ import {
   Appointment,
   Chat,
   Exhibitors,
+  ManageRole,
   NotFound,
+  OnlineUsersData,
   PasswordSetting,
   Profile,
   ProfileEdit,
@@ -17,6 +19,7 @@ import {
   StallDetails,
   Support,
   UpdateStall,
+  UsersData,
   ViewDocuments,
   ViewLinks,
   ViewMember,
@@ -44,9 +47,13 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/AddDocument" exact component={AddDocument} />
       <PrivateRouter path="/ViewDocuments" exact component={ViewDocuments} />
       <PrivateRouter path="/Exhibitors" exact component={Exhibitors} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter
+        path="/OnlineUsersData"
+        exact
+        component={OnlineUsersData}
+      />
+      <PrivateRouter path="/UsersData" exact component={UsersData} />
+      <PrivateRouter path="/ManageRole" exact component={ManageRole} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}

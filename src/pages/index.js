@@ -19,6 +19,9 @@ import ViewLinks from "./ViewLinks";
 import AddDocument from "./AddDocument";
 import ViewDocuments from "./ViewDocuments";
 import Exhibitors from "./Exhibitors";
+import OnlineUsersData from "./OnlineUsersData";
+import UsersData from "./UsersData";
+import ManageRole from "./ManageRole";
 
 export {
   ForgetPassword,
@@ -42,4 +45,7 @@ export {
   AddDocument,
   ViewDocuments,
   Exhibitors,
+  OnlineUsersData,
+  UsersData,
+  ManageRole,
 };

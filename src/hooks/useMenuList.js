@@ -2,17 +2,20 @@ import {
   AccountBox,
   AccountCircle,
   Add,
+  Build,
   Chat,
   Dashboard,
   Description,
   Edit,
   EventNote,
+  Group,
   GroupAdd,
   Link,
   NoteAdd,
   Pageview,
   Settings,
   Storefront,
+  SupervisedUserCircle,
   Update,
   Visibility,
   YouTube,
@@ -38,21 +41,13 @@ const useMenuList = () => {
         StallMember: true,
         superadmin: true,
       },
-      {
-        name: "Exhibitors",
-        route: "Exhibitors",
-        icon: <AccountBox color="primary" />,
-        stall: false,
-        StallMember: false,
-        superadmin: true,
-      },
+
       {
         name: "Chat",
         route: "Chat",
         icon: <Chat color="primary" />,
         stall: true,
         StallMember: true,
-        superadmin: false,
       },
       {
         name: "Appointment",
@@ -60,7 +55,6 @@ const useMenuList = () => {
         icon: <EventNote color="primary" />,
         stall: true,
         StallMember: true,
-        superadmin: false,
       },
       {
         icon: <AccountCircle color="primary" />,
@@ -68,7 +62,7 @@ const useMenuList = () => {
         collapsed: openProfile,
         stall: true,
         StallMember: true,
-        superadmin: false,
+
         onClick: () => setOpenProfile(!openProfile),
         collapsedItems: [
           {
@@ -90,7 +84,7 @@ const useMenuList = () => {
         collapsed: openMember,
         stall: true,
         StallMember: false,
-        superadmin: false,
+
         onClick: () => setOpenMember(!openMember),
         collapsedItems: [
           {
@@ -111,7 +105,7 @@ const useMenuList = () => {
         collapsed: openStore,
         stall: true,
         StallMember: false,
-        superadmin: false,
+
         onClick: () => setOpenStore(!openStore),
         collapsedItems: [
           {
@@ -132,7 +126,7 @@ const useMenuList = () => {
         collapsed: openVideo,
         stall: true,
         StallMember: true,
-        superadmin: false,
+
         onClick: () => setOpenVideo(!openVideo),
         collapsedItems: [
           {
@@ -154,7 +148,7 @@ const useMenuList = () => {
         collapsed: openLinks,
         stall: true,
         StallMember: true,
-        superadmin: false,
+
         onClick: () => setOpenLinks(!openLinks),
         collapsedItems: [
           {
@@ -175,7 +169,7 @@ const useMenuList = () => {
         collapsed: openDocuments,
         stall: true,
         StallMember: true,
-        superadmin: false,
+
         onClick: () => setOpenDocuments(!openDocuments),
         collapsedItems: [
           {
@@ -190,6 +184,33 @@ const useMenuList = () => {
           },
         ],
       },
+      //superAdmin DashBoard Menu
+      {
+        name: "Exhibitors",
+        route: "Exhibitors",
+        icon: <AccountBox color="primary" />,
+        superadmin: true,
+      },
+      {
+        name: "Users Data",
+        route: "UsersData",
+        icon: <Group color="primary" />,
+        superadmin: true,
+      },
+      {
+        name: "Manage Role",
+        route: "ManageRole",
+        icon: <Build color="primary" />,
+        superadmin: true,
+      },
+      {
+        name: "Online Users",
+        route: "OnlineUsersData",
+        icon: <SupervisedUserCircle color="primary" />,
+        superadmin: true,
+      },
+
+      //For All
       {
         icon: <Settings color="primary" />,
         name: "Settings",
