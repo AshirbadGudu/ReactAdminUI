@@ -255,7 +255,6 @@ const useMenuList = () => {
         name: "Participants Logo",
         collapsed: openLogo,
         helpdesk: true,
-
         onClick: () => setOpenLogo(!openLogo),
         collapsedItems: [
           {
