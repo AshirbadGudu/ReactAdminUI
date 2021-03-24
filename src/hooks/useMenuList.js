@@ -3,6 +3,7 @@ import {
   AccountCircle,
   Add,
   Build,
+  CameraEnhance,
   Chat,
   Dashboard,
   Description,
@@ -13,10 +14,13 @@ import {
   Link,
   NoteAdd,
   Pageview,
+  Photo,
+  RateReview,
   Settings,
   Storefront,
   SupervisedUserCircle,
   Update,
+  ViewAgenda,
   Visibility,
   YouTube,
 } from "@material-ui/icons";
@@ -31,8 +35,12 @@ const useMenuList = () => {
   const [openVideo, setOpenVideo] = useState(false);
   const [openLinks, setOpenLinks] = useState(false);
   const [openDocuments, setOpenDocuments] = useState(false);
+  const [openAgenda, setOpenAgenda] = useState(false);
+  const [openLogo, setOpenLogo] = useState(false);
+  const [openLeadpage, setOpenLeadpage] = useState(false);
   useEffect(() => {
     setMenu([
+      //For All Dashboard
       {
         name: "Dashboard",
         route: "StallDashboard",
@@ -40,8 +48,8 @@ const useMenuList = () => {
         stall: true,
         StallMember: true,
         superadmin: true,
+        helpdesk: true,
       },
-
       {
         name: "Chat",
         route: "Chat",
@@ -209,8 +217,76 @@ const useMenuList = () => {
         icon: <SupervisedUserCircle color="primary" />,
         superadmin: true,
       },
+      //HelpDesk
+      {
+        name: "Live Chat",
+        route: "LiveChat",
+        icon: <Chat color="primary" />,
+        helpdesk: true,
+      },
+      {
+        icon: <ViewAgenda color="primary" />,
+        name: "Manage Agenda",
+        collapsed: openAgenda,
+        helpdesk: true,
+
+        onClick: () => setOpenAgenda(!openAgenda),
+        collapsedItems: [
+          {
+            name: "Add Agenda",
+            route: "AddDocument",
+            icon: <Add color="action" />,
+          },
+          {
+            name: "View Agenda",
+            route: "ViewDocuments",
+            icon: <ViewAgenda color="action" />,
+          },
+        ],
+      },
+      {
+        icon: <Photo color="primary" />,
+        name: "Participants Logo",
+        collapsed: openLogo,
+        helpdesk: true,
+
+        onClick: () => setOpenLogo(!openLogo),
+        collapsedItems: [
+          {
+            name: "Add Logo",
+            route: "AddLogo",
+            icon: <Add color="action" />,
+          },
+          {
+            name: "View Logo",
+            route: "ViewLogo",
+            icon: <CameraEnhance color="action" />,
+          },
+        ],
+      },
+      {
+        icon: <EventNote color="primary" />,
+        name: "LeadPage Data",
+        collapsed: openLeadpage,
+        helpdesk: true,
+
+        onClick: () => setOpenLeadpage(!openLeadpage),
+        collapsedItems: [
+          {
+            name: "Add Lead Page Data",
+            route: "AddLeadPageData",
+            icon: <NoteAdd color="action" />,
+          },
+          {
+            name: "View Lead Page Data",
+            route: "ViewLeadPageData",
+            icon: <RateReview color="action" />,
+          },
+        ],
+      },
 
       //For All
+
       {
         icon: <Settings color="primary" />,
         name: "Settings",
@@ -218,6 +294,7 @@ const useMenuList = () => {
         stall: true,
         StallMember: true,
         superadmin: true,
+        helpdesk: true,
         onClick: () => setSetting(!setting),
         collapsedItems: [
           {
@@ -234,8 +311,11 @@ const useMenuList = () => {
       },
     ]);
   }, [
+    openAgenda,
     openDocuments,
+    openLeadpage,
     openLinks,
+    openLogo,
     openMember,
     openProfile,
     openStore,

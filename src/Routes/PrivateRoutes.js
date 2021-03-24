@@ -3,12 +3,15 @@ import { Switch } from "react-router-dom";
 import { PrivateRouter } from ".";
 import {
   AddDocument,
+  AddLeadPageData,
   AddLink,
+  AddLogo,
   AddMember,
   AddVideo,
   Appointment,
   Chat,
   Exhibitors,
+  LiveChat,
   ManageRole,
   NotFound,
   OnlineUsersData,
@@ -21,7 +24,9 @@ import {
   UpdateStall,
   UsersData,
   ViewDocuments,
+  ViewLeadPageData,
   ViewLinks,
+  ViewLogo,
   ViewMember,
   ViewVideo,
 } from "../pages";
@@ -54,8 +59,19 @@ const PrivateRoutes = () => {
       />
       <PrivateRouter path="/UsersData" exact component={UsersData} />
       <PrivateRouter path="/ManageRole" exact component={ManageRole} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/LiveChat" exact component={LiveChat} />
+      <PrivateRouter path="/AddLogo" exact component={AddLogo} />
+      <PrivateRouter path="/ViewLogo" exact component={ViewLogo} />
+      <PrivateRouter
+        path="/AddLeadPageData"
+        exact
+        component={AddLeadPageData}
+      />
+      <PrivateRouter
+        path="/ViewLeadPageData"
+        exact
+        component={ViewLeadPageData}
+      />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
 
       <PrivateRouter

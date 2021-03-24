@@ -22,6 +22,11 @@ import Exhibitors from "./Exhibitors";
 import OnlineUsersData from "./OnlineUsersData";
 import UsersData from "./UsersData";
 import ManageRole from "./ManageRole";
+import LiveChat from "./LiveChat";
+import AddLogo from "./AddLogo";
+import ViewLogo from "./ViewLogo";
+import AddLeadPageData from "./AddLeadPageData";
+import ViewLeadPageData from "./ViewLeadPageData";
 
 export {
   ForgetPassword,
@@ -48,4 +53,9 @@ export {
   OnlineUsersData,
   UsersData,
   ManageRole,
+  LiveChat,
+  AddLogo,
+  ViewLogo,
+  AddLeadPageData,
+  ViewLeadPageData,
 };

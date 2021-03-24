@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const useCurrentUser = () => {
   const [currentUserData] = useState({
-    role: "superadmin",
+    role: "helpdesk",
     id: "1234567890",
   });
 
