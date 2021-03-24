@@ -10,7 +10,9 @@ import {
   PasswordSetting,
   Profile,
   ProfileEdit,
+  StallDetails,
   Support,
+  UpdateStall,
   ViewMember,
 } from "../pages";
 
@@ -26,8 +28,8 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/Appointment" exact component={Appointment} />
       <PrivateRouter path="/ViewMember" exact component={ViewMember} />
       <PrivateRouter path="/AddMember" exact component={AddMember} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/UpdateStall" exact component={UpdateStall} />
+      <PrivateRouter path="/StallDetails" exact component={StallDetails} />
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
       {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}

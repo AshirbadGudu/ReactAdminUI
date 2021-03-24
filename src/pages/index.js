@@ -10,6 +10,8 @@ import PasswordSetting from "./PasswordSetting";
 import Appointment from "./Appointment";
 import ViewMember from "./ViewMember";
 import AddMember from "./AddMember";
+import UpdateStall from "./UpdateStall";
+import StallDetails from "./StallDetails";
 
 export {
   ForgetPassword,
@@ -24,4 +26,6 @@ export {
   Appointment,
   ViewMember,
   AddMember,
+  UpdateStall,
+  StallDetails,
 };

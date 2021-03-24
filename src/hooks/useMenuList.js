@@ -7,6 +7,8 @@ import {
   EventNote,
   GroupAdd,
   Settings,
+  Storefront,
+  Update,
   Visibility,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
@@ -16,6 +18,7 @@ const useMenuList = () => {
   const [openProfile, setOpenProfile] = useState(false);
   const [setting, setSetting] = useState(false);
   const [openMember, setOpenMember] = useState(false);
+  const [openStore, setOpenStore] = useState(false);
   useEffect(() => {
     setMenu([
       {
@@ -81,6 +84,26 @@ const useMenuList = () => {
         ],
       },
       {
+        icon: <Storefront color="primary" />,
+        name: "Stall Info",
+        collapsed: openStore,
+        // stall: true,
+        // StallMember: true,
+        onClick: () => setOpenStore(!openStore),
+        collapsedItems: [
+          {
+            name: "Update Stall",
+            route: "UpdateStall",
+            icon: <Update color="action" />,
+          },
+          {
+            name: "StallDetails",
+            route: "StallDetails",
+            icon: <Add color="action" />,
+          },
+        ],
+      },
+      {
         icon: <Settings color="primary" />,
         name: "Settings",
         collapsed: setting,
@@ -101,7 +124,7 @@ const useMenuList = () => {
         ],
       },
     ]);
-  }, [openMember, openProfile, setting]);
+  }, [openMember, openProfile, openStore, setting]);
   return { menu };
 };
 
