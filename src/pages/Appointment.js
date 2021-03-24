@@ -1,6 +1,6 @@
 import { Button, Card, CardContent } from "@material-ui/core";
-import { Delete, GetApp } from "@material-ui/icons";
-import React, { useState } from "react";
+import { GetApp } from "@material-ui/icons";
+import React from "react";
 import { Navigation } from "../components";
 import { useAppointment } from "../hooks";
 import { CSVLink } from "react-csv";
@@ -8,11 +8,6 @@ import { DataGrid } from "@material-ui/data-grid";
 
 const Appointment = () => {
   const { appointment } = useAppointment();
-  const [appointmentId, setAppointmentId] = useState([]);
-
-  const rows = appointment;
-  console.log(rows);
-
   const columns = [
     { field: "slno", headerName: "SL No.", width: 100 },
     { field: "name", headerName: " Name", width: 200 },
@@ -20,7 +15,13 @@ const Appointment = () => {
     { field: "subject", headerName: "Subject", width: 130 },
     { field: "message", headerName: "Message", width: 480 },
   ];
-
+  const headers = [
+    { label: "SL No.", key: "slno" },
+    { label: " Name", key: "name" },
+    { label: "Email", key: "email" },
+    { label: "Subject", key: "subject" },
+    { label: "Message", key: "message" },
+  ];
   return (
     <Navigation>
       <div
@@ -31,8 +32,8 @@ const Appointment = () => {
         }}
       >
         <CSVLink
-          data={rows}
-          // headers={headers}
+          data={appointment}
+          headers={headers}
           style={{ textDecoration: "none" }}
         >
           <Button
@@ -46,44 +47,9 @@ const Appointment = () => {
         </CSVLink>
       </div>
       <Card>
-        <div
-          style={{
-            display: appointmentId.length ? "block" : "none",
-            transition: "ease-out",
-          }}
-        >
-          <Button
-            startIcon={<Delete />}
-            variant="contained"
-            color="secondary"
-            style={{ margin: "10px" }}
-            // onClick={handleDelete}
-          >
-            Delete
-          </Button>
-        </div>
-
         <CardContent>
           <div style={{ height: 600, width: "100%" }}>
-            <DataGrid
-              rows={appointment}
-              columns={columns}
-              pageSize={8}
-              checkboxSelection
-              onRowSelected={(e) => {
-                if (e?.isSelected)
-                  setAppointmentId([...appointmentId, e.data.id]);
-                else {
-                  const index = appointmentId.indexOf(e.data.id);
-                  if (index > -1) {
-                    const array = appointmentId;
-                    array.splice(index, 1);
-                    setAppointmentId(array);
-                  }
-                  if (appointmentId.length < 1) setAppointmentId([]);
-                }
-              }}
-            />
+            <DataGrid rows={appointment} columns={columns} pageSize={8} />
           </div>
         </CardContent>
       </Card>
