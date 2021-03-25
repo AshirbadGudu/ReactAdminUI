@@ -21,7 +21,6 @@ import {
   PasswordSetting,
   Profile,
   ProfileEdit,
-  StallDashboard,
   StallDetails,
   Support,
   UpdateStall,
@@ -39,7 +38,7 @@ import {
 const PrivateRoutes = () => {
   return (
     <Switch>
-      <PrivateRouter path="/" exact component={StallDashboard} />
+      <PrivateRouter path="/" exact component={Dashboard} />
       <PrivateRouter path="/Dashboard" exact component={Dashboard} />
       <PrivateRouter path="/Profile" exact component={Profile} />
       <PrivateRouter path="/EditProfile" exact component={ProfileEdit} />

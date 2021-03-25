@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import DashboardCard from "../components/DashboardCard";
 import { useVisitors } from "../hooks";
 import { Bar, Pie } from "react-chartjs-2";
+import { Navigation } from "../components";
 
 function StallDashboard() {
   const { visitors } = useVisitors();
@@ -41,7 +42,7 @@ function StallDashboard() {
   }, []);
 
   return (
-    <div>
+    <>
       <Grid container spacing={3}>
         <Grid item lg={3} xs={12}>
           <DashboardCard
@@ -102,7 +103,7 @@ function StallDashboard() {
           </Card>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 }
 
