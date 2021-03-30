@@ -13,6 +13,7 @@ import {
   Appointment,
   Chat,
   Dashboard,
+  EditAgenda,
   Exhibitors,
   LiveChat,
   ManageRole,
@@ -80,7 +81,9 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/ViewEvents" exact component={ViewEvents} />
       <PrivateRouter path="/AddSpeaker" exact component={AddSpeaker} />
       <PrivateRouter path="/ViewSpeaker" exact component={ViewSpeaker} />
-      {/* <PrivateRouter path="/Appointment" exact component={Appointment} /> */}
+      <PrivateRouter path="/EditAgenda" exact component={EditAgenda} />
+      {/* <PrivateRouter path="/EditAgenda" exact component={EditAgenda} /> */}
+      {/* <PrivateRouter path="/EditAgenda" exact component={EditAgenda} /> */}
 
       <PrivateRouter
         path="/PasswordSetting"

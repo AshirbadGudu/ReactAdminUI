@@ -33,6 +33,7 @@ import AddSpeaker from "./AddSpeaker";
 import ViewSpeaker from "./ViewSpeaker";
 import Dashboard from "./DashBoard";
 import SuperAdminDashBoard from "./SuperAdminDashBoard";
+import EditAgenda from "./EditAgenda";
 export {
   ForgetPassword,
   Login,
@@ -69,4 +70,5 @@ export {
   ViewSpeaker,
   Dashboard,
   SuperAdminDashBoard,
+  EditAgenda,
 };
