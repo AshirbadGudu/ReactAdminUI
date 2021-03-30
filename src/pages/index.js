@@ -16,7 +16,7 @@ import AddVideo from "./AddVideo";
 import ViewVideo from "./ViewVideo";
 import AddLink from "./AddLink";
 import ViewLinks from "./ViewLinks";
-import AddDocument from "./AddDocument";
+import AddAgenda from "./AddAgenda";
 import ViewDocuments from "./ViewDocuments";
 import Exhibitors from "./Exhibitors";
 import OnlineUsersData from "./OnlineUsersData";
@@ -52,7 +52,7 @@ export {
   ViewVideo,
   AddLink,
   ViewLinks,
-  AddDocument,
+  AddAgenda,
   ViewDocuments,
   Exhibitors,
   OnlineUsersData,

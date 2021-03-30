@@ -240,7 +240,7 @@ const useMenuList = () => {
         collapsedItems: [
           {
             name: "Add Agenda",
-            route: "AddDocument",
+            route: "AddAgenda",
             icon: <Add color="action" />,
           },
           {
