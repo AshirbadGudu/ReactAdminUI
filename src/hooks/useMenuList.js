@@ -41,7 +41,7 @@ const useMenuList = () => {
   const [openDocuments, setOpenDocuments] = useState(false);
   const [openAgenda, setOpenAgenda] = useState(false);
   const [openLogo, setOpenLogo] = useState(false);
-  const [openLeadpage, setOpenLeadpage] = useState(false);
+
   const [openEvent, setOpenEvent] = useState(false);
   const [openSpeaker, setOpenSpeaker] = useState(false);
   useEffect(() => {
@@ -231,6 +231,12 @@ const useMenuList = () => {
         helpdesk: true,
       },
       {
+        name: "Lead Page Data",
+        route: "LeadPageData",
+        icon: <EventNote color="primary" />,
+        helpdesk: true,
+      },
+      {
         icon: <ViewAgenda color="primary" />,
         name: "Manage Agenda",
         collapsed: openAgenda,
@@ -245,7 +251,7 @@ const useMenuList = () => {
           },
           {
             name: "View Agenda",
-            route: "ViewDocuments",
+            route: "ViewAgenda",
             icon: <ViewAgenda color="action" />,
           },
         ],
@@ -269,26 +275,7 @@ const useMenuList = () => {
           },
         ],
       },
-      {
-        icon: <EventNote color="primary" />,
-        name: "Lead Page Data",
-        collapsed: openLeadpage,
-        helpdesk: true,
 
-        onClick: () => setOpenLeadpage(!openLeadpage),
-        collapsedItems: [
-          {
-            name: "Add Lead Page Data",
-            route: "AddLeadPageData",
-            icon: <NoteAdd color="action" />,
-          },
-          {
-            name: "View Lead Page Data",
-            route: "ViewLeadPageData",
-            icon: <RateReview color="action" />,
-          },
-        ],
-      },
       {
         icon: <LocalActivity color="primary" />,
         name: "Manage Event",
@@ -367,7 +354,6 @@ const useMenuList = () => {
     openAgenda,
     openDocuments,
     openEvent,
-    openLeadpage,
     openLinks,
     openLogo,
     openMember,

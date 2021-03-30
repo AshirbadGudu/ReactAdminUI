@@ -17,7 +17,7 @@ import ViewVideo from "./ViewVideo";
 import AddLink from "./AddLink";
 import ViewLinks from "./ViewLinks";
 import AddAgenda from "./AddAgenda";
-import ViewDocuments from "./ViewDocuments";
+import ViewAgenda from "./ViewAgenda";
 import Exhibitors from "./Exhibitors";
 import OnlineUsersData from "./OnlineUsersData";
 import UsersData from "./UsersData";
@@ -25,7 +25,7 @@ import ManageRole from "./ManageRole";
 import LiveChat from "./LiveChat";
 import AddLogo from "./AddLogo";
 import ViewLogo from "./ViewLogo";
-import AddLeadPageData from "./AddLeadPageData";
+import LeadPageData from "./LeadPageData";
 import ViewLeadPageData from "./ViewLeadPageData";
 import AddEvent from "./AddEvent";
 import ViewEvents from "./ViewEvents";
@@ -54,7 +54,7 @@ export {
   AddLink,
   ViewLinks,
   AddAgenda,
-  ViewDocuments,
+  ViewAgenda,
   Exhibitors,
   OnlineUsersData,
   UsersData,
@@ -62,7 +62,7 @@ export {
   LiveChat,
   AddLogo,
   ViewLogo,
-  AddLeadPageData,
+  LeadPageData,
   ViewLeadPageData,
   AddEvent,
   ViewEvents,

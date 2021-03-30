@@ -4,7 +4,6 @@ import { PrivateRouter } from ".";
 import {
   AddAgenda,
   AddEvent,
-  AddLeadPageData,
   AddLink,
   AddLogo,
   AddMember,
@@ -15,6 +14,7 @@ import {
   Dashboard,
   EditAgenda,
   Exhibitors,
+  LeadPageData,
   LiveChat,
   ManageRole,
   NotFound,
@@ -26,7 +26,7 @@ import {
   Support,
   UpdateStall,
   UsersData,
-  ViewDocuments,
+  ViewAgenda,
   ViewEvents,
   ViewLeadPageData,
   ViewLinks,
@@ -55,7 +55,7 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/AddLink" exact component={AddLink} />
       <PrivateRouter path="/ViewLinks" exact component={ViewLinks} />
       <PrivateRouter path="/AddAgenda" exact component={AddAgenda} />
-      <PrivateRouter path="/ViewDocuments" exact component={ViewDocuments} />
+      <PrivateRouter path="/ViewAgenda" exact component={ViewAgenda} />
       <PrivateRouter path="/Exhibitors" exact component={Exhibitors} />
       <PrivateRouter
         path="/OnlineUsersData"
@@ -67,11 +67,7 @@ const PrivateRoutes = () => {
       <PrivateRouter path="/LiveChat" exact component={LiveChat} />
       <PrivateRouter path="/AddLogo" exact component={AddLogo} />
       <PrivateRouter path="/ViewLogo" exact component={ViewLogo} />
-      <PrivateRouter
-        path="/AddLeadPageData"
-        exact
-        component={AddLeadPageData}
-      />
+      <PrivateRouter path="/LeadPageData" exact component={LeadPageData} />
       <PrivateRouter
         path="/ViewLeadPageData"
         exact
