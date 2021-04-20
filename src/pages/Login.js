@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import { auth } from "../config";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -47,8 +48,8 @@ const Login = () => {
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      // await login(email, password);
-      history.push("/");
+      await auth.signInWithEmailAndPassword(email, password);
+      await history.push("/");
     } catch (error) {
       setShowAlert({ msg: error.message, isOpen: true, color: "error" });
     } finally {

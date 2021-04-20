@@ -1,13 +1,17 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import { ForgetPassword, Login, NotFound } from "../pages";
+import { NotFound } from "../pages";
 
 const PublicRoutes = () => {
+  const LazyLogin = lazy(() => import("../pages/Login"));
+  const LazyForgetPassword = lazy(() => import("../pages/ForgetPassword"));
   return (
     <Switch>
-      <Route path="/" exact component={Login} />
-      <Route path="/Login" exact component={Login} />
-      <Route path="/ForgetPassword" exact component={ForgetPassword} />
+      <Suspense fallback={"Loading..."}>
+        <Route path="/" exact component={LazyLogin} />
+        <Route path="/Login" exact component={LazyLogin} />
+        <Route path="/ForgetPassword" exact component={LazyForgetPassword} />
+      </Suspense>
       <Route path="/" component={NotFound} />
     </Switch>
   );

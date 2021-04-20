@@ -6,12 +6,15 @@ import {
   Container,
   CssBaseline,
   makeStyles,
+  Snackbar,
   TextField,
   Typography,
 } from "@material-ui/core";
 import { LockOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import { Navigation } from "../components";
+import { auth } from "../config";
+import Alert from "@material-ui/lab/Alert";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(2),
@@ -36,20 +39,39 @@ const PasswordSetting = () => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const handelSubmit = (e) => {
+  const [showAlert, setShowAlert] = useState({
+    msg: "",
+    isOpen: false,
+    color: "",
+  });
+  const handelSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log(password);
-      console.log(newPassword);
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      setPassword("");
-      setNewPassword("");
+    if (password === newPassword) {
+      try {
+        await auth?.currentUser?.updatePassword(password);
+      } catch (error) {
+        setShowAlert({ msg: error.message, isOpen: true, color: "error" });
+      } finally {
+        setPassword("");
+        setNewPassword("");
+      }
+    } else {
     }
   };
   return (
     <Navigation>
+      <Snackbar
+        open={showAlert.isOpen}
+        autoHideDuration={6000}
+        onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+      >
+        <Alert
+          onClose={() => setShowAlert({ msg: "", isOpen: false, color: "" })}
+          severity={showAlert.color}
+        >
+          {showAlert.msg}
+        </Alert>
+      </Snackbar>
       <Container component="main" maxWidth="xs">
         <Card>
           <CardContent>

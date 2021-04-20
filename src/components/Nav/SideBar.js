@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Collapse,
   Divider,
@@ -12,6 +12,7 @@ import {
 import { ExpandLess, ExpandMore, SettingsPower } from "@material-ui/icons";
 import Icon from "../../assets/icon.png";
 import useMenuList from "../../hooks/useMenuList";
+import { auth } from "../../config";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function Sidebar() {
   const classes = useStyles();
   const { menu } = useMenuList();
+  const history = useHistory();
   return (
     <div>
       <List>
@@ -83,7 +85,13 @@ function Sidebar() {
               )
           )}
         <Divider />
-        <ListItem button component={Link} to="/Dashboard">
+        <ListItem
+          button
+          onClick={async () => {
+            auth.signOut();
+            await history.push("/");
+          }}
+        >
           <ListItemIcon>
             <SettingsPower color="secondary" />
           </ListItemIcon>

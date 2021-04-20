@@ -16,6 +16,7 @@ import {
   Menu,
   MenuItem,
 } from "@material-ui/core";
+import { auth } from "../../config";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -85,8 +86,8 @@ function TopBarSide() {
       <MenuItem
         onClick={async () => {
           handleMenuClose();
-          // await logout();
-          history.push("/");
+          await auth.signOut();
+          await history.push("/");
         }}
       >
         <ListItemIcon>
