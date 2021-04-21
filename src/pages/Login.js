@@ -49,7 +49,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      await history.push("/");
+      history.push("/");
     } catch (error) {
       setShowAlert({ msg: error.message, isOpen: true, color: "error" });
     } finally {
