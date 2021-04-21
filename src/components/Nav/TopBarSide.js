@@ -87,7 +87,7 @@ function TopBarSide() {
         onClick={async () => {
           handleMenuClose();
           await auth.signOut();
-          await history.push("/");
+          history.push("/");
         }}
       >
         <ListItemIcon>
