@@ -88,8 +88,8 @@ function Sidebar() {
         <ListItem
           button
           onClick={async () => {
-            auth.signOut();
-            await history.push("/");
+            await auth.signOut();
+            history.push("/");
           }}
         >
           <ListItemIcon>
